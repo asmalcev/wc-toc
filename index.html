@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+        <style>
+            .toc {
+                --dots-padding: 0.5ch;
+                --dots-spacing-coefficient: 1;
+                --dots-color: currentColor;
+
+                width: 400px;
+            }
+
+            .toc-row {
+                display: grid;
+                grid-template-columns: auto max-content;
+                align-items: flex-end;
+                gap: 0 var(--dots-padding);
+            }
+
+            .toc-chapter {
+                position: relative;
+                overflow: hidden;
+            }
+
+            .toc-chapter::after {
+                content: '';
+                position: absolute;
+                margin-left: var(--dots-padding);
+                width: 100%;
+                bottom: 0.3cap;
+                height: 1cap;
+
+                border-bottom: 0.2cap dotted var(--dots-color);
+
+                transform-origin: left;
+                transform: scaleX(var(--dots-spacing-coefficient));
+            }
+        </style>
+    </head>
+    <body>
+        <div class="toc">
+            <div class="toc-row">
+                <div class="toc-chapter">Chapter 1</div>
+                <div class="toc-page">1</div>
+            </div>
+            <div class="toc-row">
+                <div class="toc-chapter">Chapter 2</div>
+                <div class="toc-page">42</div>
+            </div>
+            <div class="toc-row">
+                <div class="toc-chapter">
+                    Some very very very very very very very very very very very
+                    very very very long chapter
+                </div>
+                <div class="toc-page">59</div>
+            </div>
+        </div>
+    </body>
+</html>
